@@ -1,0 +1,561 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(29, 18, 45);
+    font-family: 'poppins', sans-serif;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    header {
+        * {
+            background-color: rgb(20, 18, 27);
+        }
+        width: 100%;
+        .title {
+            border-radius: 10px 10px 0 0;
+            border-top: 2px solid blueviolet;
+            border-right: 2px solid blueviolet;
+            border-left: 2px solid blueviolet;
+            ;
+            padding: 10px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .image {
+                display: flex;
+                align-items: center;
+                img {
+                    height: 60px;
+                }
+                h4 {
+                    margin-left: 20px;
+                    color: white;
+                    font-size: 1.5rem;
+                }
+            }
+            button {
+                border: none;
+                outline: none;
+                svg {
+                    height: 20px;
+                    fill: white;
+                    display: none;
+                }
+            }
+        }
+    }
+    .main-container {
+        padding: 10px;
+        border: 2px solid blueviolet;
+        height: max-content;
+        display: flex;
+        background-color: rgb(20, 18, 27);
+        * {
+            background: none;
+        }
+        .user-section-loader {
+            background-color: rgb(27, 16, 53);
+            min-width: 40%;
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+            display: block;
+        }
+        .loader {
+            display: block;
+            .skeleton-box {
+                display: inline-block;
+                height: 1rem;
+                border-radius: 10px;
+                margin-top: 30px;
+                margin-bottom: 22px;
+                position: relative;
+                overflow: hidden;
+                background-color: #aea2a28a;
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    transform: translateX(-100%);
+                    background-image: linear-gradient( 90deg, rgba(#fff, 0) 0, rgba(#fff, 0.2) 20%, rgba(#fff, 0.5) 60%, rgba(#fff, 0));
+                    animation: shimmer 1s infinite;
+                    content: '';
+                }
+                @keyframes shimmer {
+                    100% {
+                        transform: translateX(100%);
+                    }
+                }
+            }
+        }
+        .user-section {
+            background-color: rgb(27, 16, 53);
+            width: 40%;
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+            display: none;
+            .room {
+                margin: 20px 5px;
+                .roomName {
+                    display: flex;
+                    justify-content: space-between;
+                    .room_Head {
+                        h3 {
+                            margin-bottom: 20px;
+                            font-size: 1rem;
+                        }
+                        h4 {
+                            font-size: 0.9rem;
+                        }
+                    }
+                    .room_Admin {
+                        h3 {
+                            margin-bottom: 20px;
+                            font-size: 1rem;
+                        }
+                        h4 {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+            .user-head {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 5px;
+                h3 {
+                    font-size: 1rem;
+                }
+                h4 {
+                    font-size: 0.9rem;
+                    text-align: center;
+                    border-radius: 50%;
+                    color: black;
+                    margin-right: 65px;
+                    background-color: white;
+                    width: 23px;
+                }
+            }
+            .users {
+                h4 {
+                    margin-bottom: 10px;
+                    font-size: 0.9rem;
+                    padding: 3px;
+                }
+            }
+        }
+        .message-window-loader {
+            width: 80%;
+            padding: 0 20px 0 20px;
+            display: block;
+        }
+        .message-window {
+            width: 80%;
+            padding: 0 0 0 10px;
+            display: none;
+            .chat_head {
+                color: white;
+                border-radius: 10px 10px 0 0;
+                background-color: rgb(27, 16, 53);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px 12px;
+                .roomAvatar {
+                    display: flex;
+                    justify-content: space-around;
+                    width: 30%;
+                    margin-left: 5px;
+                    align-items: center;
+                    .roomImage {
+                        background: white;
+                        padding: 10px;
+                        border-radius: 100%;
+                        svg {
+                            height: 20px;
+                            fill: black;
+                        }
+                    }
+                    .expand {
+                        display: flex;
+                        align-items: center;
+                        svg {
+                            height: 20px;
+                            fill: white;
+                            padding: 5px;
+                        }
+                        svg:hover {
+                            background-color: rgba(255, 255, 255, 0.13);
+                            border-radius: 45%;
+                            fill: greenyellow;
+                        }
+                    }
+                }
+                .options {
+                    margin-right: 5px;
+                    svg {
+                        height: 18px;
+                        fill: white;
+                        margin-left: 15px;
+                        padding: 7px;
+                    }
+                    svg:hover {
+                        background-color: rgba(255, 255, 255, 0.098);
+                        padding: 7px;
+                        border-radius: 50%;
+                        fill: greenyellow;
+                    }
+                }
+            }
+            .chats {
+                padding: 20px 0;
+                height: 55vh;
+                background-color: rgb(26, 22, 44);
+                border-radius: 0 0 10px 10px;
+                overflow-y: auto;
+                scrollbar-width: none;
+                .user-joined {
+                    font-size: 15px;
+                    background-color: rgb(0, 255, 106);
+                    color: black;
+                    border-radius: 20px;
+                    text-align: center;
+                    width: max-content;
+                    margin: 30px auto 5px auto;
+                    align-items: center;
+                    h5 {
+                        padding: 10px;
+                    }
+                }
+                .message_body {
+                    max-width: 100%;
+                    .message {
+                        margin-top: 20px;
+                        max-width: 35%;
+                        width: max-content;
+                        h5 {
+                            font-size: 10px;
+                            height: 5px;
+                            margin-left: 5px;
+                            color: white;
+                        }
+                    }
+                    .incoming {
+                        margin-left: 40px;
+                        p {
+                            letter-spacing: 0.1rem;
+                            margin-top: 15px;
+                            font-size: 15px;
+                            background-color: rgb(85, 96, 222);
+                            color: white;
+                            border-radius: 20px;
+                            height: auto;
+                            align-items: center;
+                            padding: 3px 10px;
+                        }
+                    }
+                    .outgoing {
+                        margin-left: auto;
+                        margin-right: 40px;
+                        p {
+                            letter-spacing: 0.1rem;
+                            margin-top: 15px;
+                            font-size: 15px;
+                            background-color: rgb(64, 65, 72);
+                            color: white;
+                            border-radius: 20px;
+                            height: auto;
+                            align-items: center;
+                            padding: 3px 10px;
+                        }
+                    }
+                }
+            }
+            .form_input {
+                .sendmessage {
+                    padding-bottom: 20px;
+                    margin-left: 20px;
+                    margin-top: 20px;
+                    width: 90%;
+                    display: flex;
+                    justify-content: space-between;
+                    input {
+                        border: 2px solid blueviolet;
+                        width: 60%;
+                        outline: none;
+                        border-radius: 20px;
+                        color: white;
+                        padding: 10px 20px;
+                    }
+                    button {
+                        letter-spacing: 0.2rem;
+                        font-size: 15px;
+                        width: 15%;
+                        color: white;
+                        border: 2px solid blueviolet;
+                        border-radius: 10px;
+                        background-color: rgb(21, 25, 25);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width:550px) {
+    main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: max-content;
+        transform: translate(-50%, -50%);
+        header {
+            * {
+                background-color: rgb(20, 18, 27);
+            }
+            width: 100%;
+            .title {
+                border: none;
+                border-radius: 10px 10px 0 0;
+                padding: 10px 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .image {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        height: 60px;
+                    }
+                    h4 {
+                        margin-left: 20px;
+                        color: white;
+                        font-size: 1.5rem;
+                    }
+                }
+                button {
+                    border: none;
+                    outline: none;
+                    svg {
+                        height: 20px;
+                        fill: white;
+                        display: block;
+                    }
+                }
+            }
+        }
+        .main-container {
+            border: none;
+            border-radius: 0 0 20px 20px;
+            height: 100%;
+            display: flex;
+            background-color: rgb(20, 18, 27);
+            * {
+                background: none;
+            }
+            .user-section {
+                position: absolute;
+                width: 94%;
+                background-color: rgb(15, 15, 17);
+                border-radius: 0 0 20px 20px;
+                padding: 12px;
+                height: 70vh;
+                color: white;
+                box-shadow: 0px 15px 20px -20px white;
+                border: none;
+                visibility: hidden;
+                .room {
+                    margin: 20px 5px;
+                    .roomName {
+                        display: flex;
+                        justify-content: space-between;
+                        .room_Head {
+                            h3 {
+                                margin-bottom: 20px;
+                                font-size: 1rem;
+                            }
+                            h4 {
+                                font-size: 0.9rem;
+                            }
+                        }
+                        .room_Admin {
+                            h3 {
+                                margin-bottom: 20px;
+                                font-size: 1rem;
+                            }
+                            h4 {
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+                }
+                .user-head {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 20px 5px;
+                    h3 {
+                        font-size: 1rem;
+                    }
+                    h4 {
+                        font-size: 0.9rem;
+                        text-align: center;
+                        color: black;
+                        margin-right: 65px;
+                        background-color: white;
+                        width: 23px;
+                        // height: 25px;
+                        border-radius: 100%;
+                    }
+                }
+                .users {
+                    h4 {
+                        margin-bottom: 10px;
+                        font-size: 0.9rem;
+                        padding: 3px;
+                    }
+                }
+            }
+            .user-section-loader {
+                display: none;
+            }
+            .loader {
+                width: 100%;
+            }
+            .message-window {
+                width: 100%;
+                .chat_head {
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 25px 12px;
+                    .roomAvatar {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 40%;
+                        margin-left: 5px;
+                        .roomImage {
+                            background: white;
+                            padding: 10px;
+                            border-radius: 100%;
+                            svg {
+                                height: 20px;
+                                fill: black;
+                            }
+                        }
+                    }
+                    .options {
+                        margin-right: 5px;
+                        svg {
+                            height: 20px;
+                            fill: white;
+                        }
+                    }
+                }
+                .chats {
+                    padding: 20px 3px;
+                    border-radius: 0px 0px 20px 20px;
+                    height: 60vh;
+                    border: none;
+                    background-color: rgb(16, 12, 26);
+                    overflow-y: auto;
+                    scrollbar-width: none;
+                    .user-joined {
+                        font-size: 15px;
+                        background-color: rgba(255, 255, 255, 0.053);
+                        color: wheat;
+                        border-radius: 20px;
+                        text-align: center;
+                        width: max-content;
+                        margin: 30px auto auto auto;
+                        align-items: center;
+                        h5 {
+                            padding: 10px;
+                        }
+                    }
+                    .message_body {
+                        max-width: 100%;
+                        .message {
+                            margin-top: 20px;
+                            max-width: 35%;
+                            width: max-content;
+                            h5 {
+                                font-size: 10px;
+                                height: 5px;
+                                margin-left: 5px;
+                                color: white;
+                            }
+                        }
+                        .incoming {
+                            margin-left: 40px;
+                            p {
+                                letter-spacing: 0.1rem;
+                                margin-top: 15px;
+                                font-size: 15px;
+                                background-color: rgb(85, 96, 222);
+                                color: white;
+                                border-radius: 10px;
+                                height: auto;
+                                align-items: center;
+                                padding: 12px;
+                            }
+                        }
+                        .outgoing {
+                            margin-left: auto;
+                            margin-right: 40px;
+                            p {
+                                letter-spacing: 0.1rem;
+                                margin-top: 15px;
+                                font-size: 15px;
+                                background-color: rgb(64, 65, 72);
+                                color: white;
+                                border-radius: 10px;
+                                height: auto;
+                                align-items: center;
+                                padding: 12px;
+                            }
+                        }
+                    }
+                }
+                .form_input {
+                    padding: 0 0 50px 0;
+                    .sendmessage {
+                        padding-bottom: 10px;
+                        margin-left: 20px;
+                        margin-top: 20px;
+                        width: 90%;
+                        display: flex;
+                        justify-content: space-between;
+                        input {
+                            border: 2px solid blueviolet;
+                            width: 60%;
+                            outline: none;
+                            border-radius: 20px;
+                            color: white;
+                            padding: 10px 20px;
+                        }
+                        button {
+                            letter-spacing: 0.2rem;
+                            font-size: 15px;
+                            width: 25%;
+                            color: white;
+                            border: 2px solid blueviolet;
+                            border-radius: 10px;
+                            background-color: rgb(21, 25, 25);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

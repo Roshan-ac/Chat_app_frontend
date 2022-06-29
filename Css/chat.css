@@ -1,0 +1,563 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(29, 18, 45);
+  font-family: "poppins", sans-serif;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  transform: translate(-50%, -50%);
+}
+main header {
+  width: 100%;
+}
+main header * {
+  background-color: rgb(20, 18, 27);
+}
+main header .title {
+  border-radius: 10px 10px 0 0;
+  border-top: 2px solid blueviolet;
+  border-right: 2px solid blueviolet;
+  border-left: 2px solid blueviolet;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main header .title .image {
+  display: flex;
+  align-items: center;
+}
+main header .title .image img {
+  height: 60px;
+}
+main header .title .image h4 {
+  margin-left: 20px;
+  color: white;
+  font-size: 1.5rem;
+}
+main header .title button {
+  border: none;
+  outline: none;
+}
+main header .title button svg {
+  height: 20px;
+  fill: white;
+  display: none;
+}
+main .main-container {
+  padding: 10px;
+  border: 2px solid blueviolet;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  background-color: rgb(20, 18, 27);
+}
+main .main-container * {
+  background: none;
+}
+main .main-container .user-section-loader {
+  background-color: rgb(27, 16, 53);
+  min-width: 40%;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+main .main-container .loader {
+  display: block;
+}
+main .main-container .loader .skeleton-box {
+  display: inline-block;
+  height: 1rem;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(174, 162, 162, 0.5411764706);
+}
+main .main-container .loader .skeleton-box::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+  -webkit-animation: shimmer 1s infinite;
+          animation: shimmer 1s infinite;
+  content: "";
+}
+@-webkit-keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+main .main-container .user-section {
+  background-color: rgb(27, 16, 53);
+  width: 40%;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  display: none;
+}
+main .main-container .user-section .room {
+  margin: 20px 5px;
+}
+main .main-container .user-section .room .roomName {
+  display: flex;
+  justify-content: space-between;
+}
+main .main-container .user-section .room .roomName .room_Head h3 {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+main .main-container .user-section .room .roomName .room_Head h4 {
+  font-size: 0.9rem;
+}
+main .main-container .user-section .room .roomName .room_Admin h3 {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+main .main-container .user-section .room .roomName .room_Admin h4 {
+  font-size: 0.9rem;
+}
+main .main-container .user-section .user-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 5px;
+}
+main .main-container .user-section .user-head h3 {
+  font-size: 1rem;
+}
+main .main-container .user-section .user-head h4 {
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 50%;
+  color: black;
+  margin-right: 65px;
+  background-color: white;
+  width: 23px;
+}
+main .main-container .user-section .users h4 {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  padding: 3px;
+}
+main .main-container .message-window-loader {
+  width: 80%;
+  padding: 0 20px 0 20px;
+  display: block;
+}
+main .main-container .message-window {
+  width: 80%;
+  padding: 0 0 0 10px;
+  display: none;
+}
+main .main-container .message-window .chat_head {
+  color: white;
+  border-radius: 10px 10px 0 0;
+  background-color: rgb(27, 16, 53);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 12px;
+}
+main .main-container .message-window .chat_head .roomAvatar {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  margin-left: 5px;
+  align-items: center;
+}
+main .main-container .message-window .chat_head .roomAvatar .roomImage {
+  background: white;
+  padding: 10px;
+  border-radius: 100%;
+}
+main .main-container .message-window .chat_head .roomAvatar .roomImage svg {
+  height: 20px;
+  fill: black;
+}
+main .main-container .message-window .chat_head .roomAvatar .expand {
+  display: flex;
+  align-items: center;
+}
+main .main-container .message-window .chat_head .roomAvatar .expand svg {
+  height: 20px;
+  fill: white;
+  padding: 5px;
+}
+main .main-container .message-window .chat_head .roomAvatar .expand svg:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 45%;
+  fill: greenyellow;
+}
+main .main-container .message-window .chat_head .options {
+  margin-right: 5px;
+}
+main .main-container .message-window .chat_head .options svg {
+  height: 18px;
+  fill: white;
+  margin-left: 15px;
+  padding: 7px;
+}
+main .main-container .message-window .chat_head .options svg:hover {
+  background-color: rgba(255, 255, 255, 0.098);
+  padding: 7px;
+  border-radius: 50%;
+  fill: greenyellow;
+}
+main .main-container .message-window .chats {
+  padding: 20px 0;
+  height: 55vh;
+  background-color: rgb(26, 22, 44);
+  border-radius: 0 0 10px 10px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+main .main-container .message-window .chats .user-joined {
+  font-size: 15px;
+  background-color: rgb(0, 255, 106);
+  color: black;
+  border-radius: 20px;
+  text-align: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 30px auto 5px auto;
+  align-items: center;
+}
+main .main-container .message-window .chats .user-joined h5 {
+  padding: 10px;
+}
+main .main-container .message-window .chats .message_body {
+  max-width: 100%;
+}
+main .main-container .message-window .chats .message_body .message {
+  margin-top: 20px;
+  max-width: 35%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+main .main-container .message-window .chats .message_body .message h5 {
+  font-size: 10px;
+  height: 5px;
+  margin-left: 5px;
+  color: white;
+}
+main .main-container .message-window .chats .message_body .incoming {
+  margin-left: 40px;
+}
+main .main-container .message-window .chats .message_body .incoming p {
+  letter-spacing: 0.1rem;
+  margin-top: 15px;
+  font-size: 15px;
+  background-color: rgb(85, 96, 222);
+  color: white;
+  border-radius: 20px;
+  height: auto;
+  align-items: center;
+  padding: 3px 10px;
+}
+main .main-container .message-window .chats .message_body .outgoing {
+  margin-left: auto;
+  margin-right: 40px;
+}
+main .main-container .message-window .chats .message_body .outgoing p {
+  letter-spacing: 0.1rem;
+  margin-top: 15px;
+  font-size: 15px;
+  background-color: rgb(64, 65, 72);
+  color: white;
+  border-radius: 20px;
+  height: auto;
+  align-items: center;
+  padding: 3px 10px;
+}
+main .main-container .message-window .form_input .sendmessage {
+  padding-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+main .main-container .message-window .form_input .sendmessage input {
+  border: 2px solid blueviolet;
+  width: 60%;
+  outline: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+}
+main .main-container .message-window .form_input .sendmessage button {
+  letter-spacing: 0.2rem;
+  font-size: 15px;
+  width: 15%;
+  color: white;
+  border: 2px solid blueviolet;
+  border-radius: 10px;
+  background-color: rgb(21, 25, 25);
+}
+
+@media screen and (max-width: 550px) {
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    transform: translate(-50%, -50%);
+  }
+  main header {
+    width: 100%;
+  }
+  main header * {
+    background-color: rgb(20, 18, 27);
+  }
+  main header .title {
+    border: none;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  main header .title .image {
+    display: flex;
+    align-items: center;
+  }
+  main header .title .image img {
+    height: 60px;
+  }
+  main header .title .image h4 {
+    margin-left: 20px;
+    color: white;
+    font-size: 1.5rem;
+  }
+  main header .title button {
+    border: none;
+    outline: none;
+  }
+  main header .title button svg {
+    height: 20px;
+    fill: white;
+    display: block;
+  }
+  main .main-container {
+    border: none;
+    border-radius: 0 0 20px 20px;
+    height: 100%;
+    display: flex;
+    background-color: rgb(20, 18, 27);
+  }
+  main .main-container * {
+    background: none;
+  }
+  main .main-container .user-section {
+    position: absolute;
+    width: 94%;
+    background-color: rgb(15, 15, 17);
+    border-radius: 0 0 20px 20px;
+    padding: 12px;
+    height: 70vh;
+    color: white;
+    box-shadow: 0px 15px 20px -20px white;
+    border: none;
+    visibility: hidden;
+  }
+  main .main-container .user-section .room {
+    margin: 20px 5px;
+  }
+  main .main-container .user-section .room .roomName {
+    display: flex;
+    justify-content: space-between;
+  }
+  main .main-container .user-section .room .roomName .room_Head h3 {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  main .main-container .user-section .room .roomName .room_Head h4 {
+    font-size: 0.9rem;
+  }
+  main .main-container .user-section .room .roomName .room_Admin h3 {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  main .main-container .user-section .room .roomName .room_Admin h4 {
+    font-size: 0.9rem;
+  }
+  main .main-container .user-section .user-head {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 5px;
+  }
+  main .main-container .user-section .user-head h3 {
+    font-size: 1rem;
+  }
+  main .main-container .user-section .user-head h4 {
+    font-size: 0.9rem;
+    text-align: center;
+    color: black;
+    margin-right: 65px;
+    background-color: white;
+    width: 23px;
+    border-radius: 100%;
+  }
+  main .main-container .user-section .users h4 {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    padding: 3px;
+  }
+  main .main-container .user-section-loader {
+    display: none;
+  }
+  main .main-container .loader {
+    width: 100%;
+  }
+  main .main-container .message-window {
+    width: 100%;
+  }
+  main .main-container .message-window .chat_head {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 12px;
+  }
+  main .main-container .message-window .chat_head .roomAvatar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin-left: 5px;
+  }
+  main .main-container .message-window .chat_head .roomAvatar .roomImage {
+    background: white;
+    padding: 10px;
+    border-radius: 100%;
+  }
+  main .main-container .message-window .chat_head .roomAvatar .roomImage svg {
+    height: 20px;
+    fill: black;
+  }
+  main .main-container .message-window .chat_head .options {
+    margin-right: 5px;
+  }
+  main .main-container .message-window .chat_head .options svg {
+    height: 20px;
+    fill: white;
+  }
+  main .main-container .message-window .chats {
+    padding: 20px 3px;
+    border-radius: 0px 0px 20px 20px;
+    height: 60vh;
+    border: none;
+    background-color: rgb(16, 12, 26);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  main .main-container .message-window .chats .user-joined {
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.053);
+    color: wheat;
+    border-radius: 20px;
+    text-align: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 30px auto auto auto;
+    align-items: center;
+  }
+  main .main-container .message-window .chats .user-joined h5 {
+    padding: 10px;
+  }
+  main .main-container .message-window .chats .message_body {
+    max-width: 100%;
+  }
+  main .main-container .message-window .chats .message_body .message {
+    margin-top: 20px;
+    max-width: 35%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  main .main-container .message-window .chats .message_body .message h5 {
+    font-size: 10px;
+    height: 5px;
+    margin-left: 5px;
+    color: white;
+  }
+  main .main-container .message-window .chats .message_body .incoming {
+    margin-left: 40px;
+  }
+  main .main-container .message-window .chats .message_body .incoming p {
+    letter-spacing: 0.1rem;
+    margin-top: 15px;
+    font-size: 15px;
+    background-color: rgb(85, 96, 222);
+    color: white;
+    border-radius: 10px;
+    height: auto;
+    align-items: center;
+    padding: 12px;
+  }
+  main .main-container .message-window .chats .message_body .outgoing {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+  main .main-container .message-window .chats .message_body .outgoing p {
+    letter-spacing: 0.1rem;
+    margin-top: 15px;
+    font-size: 15px;
+    background-color: rgb(64, 65, 72);
+    color: white;
+    border-radius: 10px;
+    height: auto;
+    align-items: center;
+    padding: 12px;
+  }
+  main .main-container .message-window .form_input {
+    padding: 0 0 50px 0;
+  }
+  main .main-container .message-window .form_input .sendmessage {
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+  main .main-container .message-window .form_input .sendmessage input {
+    border: 2px solid blueviolet;
+    width: 60%;
+    outline: none;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+  }
+  main .main-container .message-window .form_input .sendmessage button {
+    letter-spacing: 0.2rem;
+    font-size: 15px;
+    width: 25%;
+    color: white;
+    border: 2px solid blueviolet;
+    border-radius: 10px;
+    background-color: rgb(21, 25, 25);
+  }
+}/*# sourceMappingURL=chat.css.map */

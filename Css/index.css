@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(29, 18, 45);
+  font-family: "poppins", sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+main .Main_Container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+main .Main_Container .title_bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .Main_Container .title_bar .logo img {
+  height: 80px;
+}
+main .Main_Container .title_bar .title {
+  color: white;
+  margin-left: 20px;
+}
+main .Main_Container .title_bar .title h2 {
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+main .Main_Container .title_bar .title h4 {
+  margin-top: 6px;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+main .Main_Container .form_control {
+  margin-top: 10%;
+  border: 1px solid white;
+  background-color: rgb(24, 21, 33);
+  height: 70vh;
+  width: 70vh;
+  border-radius: 1px 100px 1px 100px;
+  box-shadow: 0px 15px 20px -20px white;
+}
+main .Main_Container .form_control * {
+  background: none;
+}
+main .Main_Container .form_control .userlogin {
+  padding: 2%;
+  margin: 10%;
+}
+main .Main_Container .form_control .userlogin form {
+  color: white;
+}
+main .Main_Container .form_control .userlogin form .form_data .username {
+  margin-top: 30px;
+}
+main .Main_Container .form_control .userlogin form .form_data .username input {
+  background-color: rgb(20, 18, 26);
+  margin-top: 20px;
+  border: 1px solid blueviolet;
+  outline: none;
+  color: white;
+  padding: 15px 15px;
+  width: 75%;
+}
+main .Main_Container .form_control .userlogin form .form_data .roomname {
+  margin-top: 50px;
+}
+main .Main_Container .form_control .userlogin form .form_data .roomname input {
+  background-color: rgb(20, 18, 26);
+  margin-top: 20px;
+  border: 1px solid blueviolet;
+  outline: none;
+  color: white;
+  padding: 15px 15px;
+  width: 75%;
+}
+main .Main_Container .form_control .userlogin form .form_data .button-submit {
+  margin-top: 60px;
+  text-align: center;
+}
+main .Main_Container .form_control .userlogin form .form_data .button-submit button {
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  color: white;
+  border: 1px solid blueviolet;
+  width: 30%;
+  padding: 8px;
+  border-radius: 30px;
+}
+main .Main_Container .form_control .userlogin form .form_data .button-submit button:hover {
+  background-color: rgb(19, 10, 45);
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 550px) {
+  main .Main_Container {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  main .Main_Container .title_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  main .Main_Container .title_bar .logo img {
+    height: 50px;
+  }
+  main .Main_Container .title_bar .title {
+    color: white;
+    margin-left: 15px;
+  }
+  main .Main_Container .title_bar .title h2 {
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  main .Main_Container .title_bar .title h4 {
+    margin-top: 6px;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  main .Main_Container .form_control {
+    margin-top: 10%;
+    border: 1px solid white;
+    background-color: rgb(24, 21, 33);
+    height: 65vh;
+    width: 50vh;
+    border-radius: 1px 40px 1px 40px;
+    box-shadow: 0px 15px 20px -20px white;
+  }
+  main .Main_Container .form_control * {
+    background: none;
+  }
+  main .Main_Container .form_control .userlogin {
+    padding: 2%;
+    margin: 10%;
+  }
+  main .Main_Container .form_control .userlogin form {
+    color: white;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .username {
+    margin-top: 30px;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .username input {
+    background-color: rgb(20, 18, 26);
+    margin-top: 20px;
+    border: 1px solid blueviolet;
+    outline: none;
+    color: white;
+    padding: 10px 15px;
+    width: 75%;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .roomname {
+    margin-top: 50px;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .roomname input {
+    background-color: rgb(20, 18, 26);
+    margin-top: 20px;
+    border: 1px solid blueviolet;
+    outline: none;
+    color: white;
+    padding: 10px 15px;
+    width: 75%;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .button-submit {
+    margin-top: 60px;
+    text-align: center;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .button-submit button {
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid blueviolet;
+    width: 60%;
+    padding: 6px;
+    border-radius: 10px;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .button-submit button:hover {
+    background-color: rgb(19, 10, 45);
+    border: 1px solid white;
+  }
+}
+@media screen and (max-height: 400px) {
+  main .Main_Container {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  main .Main_Container .title_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  main .Main_Container .title_bar .logo img {
+    height: 50px;
+  }
+  main .Main_Container .title_bar .title {
+    color: white;
+    margin-left: 15px;
+  }
+  main .Main_Container .title_bar .title h2 {
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  main .Main_Container .title_bar .title h4 {
+    margin-top: 6px;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  main .Main_Container .form_control {
+    position: fixed;
+    z-index: auto;
+    margin-top: 5%;
+    border: 1px solid white;
+    background-color: rgb(24, 21, 33);
+    height: 65vh;
+    width: 50vh;
+    border-radius: 1px 40px 1px 40px;
+    box-shadow: 0px 15px 20px -20px white;
+  }
+  main .Main_Container .form_control * {
+    background: none;
+  }
+  main .Main_Container .form_control .userlogin {
+    padding: 2%;
+    margin: 10%;
+    display: flex;
+  }
+  main .Main_Container .form_control .userlogin form {
+    color: white;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .username {
+    margin-top: 10px;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .username input {
+    background-color: rgb(20, 18, 26);
+    margin-top: 15px;
+    border: 1px solid blueviolet;
+    outline: none;
+    color: white;
+    padding: 5px 15px;
+    width: 75%;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .roomname {
+    margin-top: 20px;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .roomname input {
+    background-color: rgb(20, 18, 26);
+    margin-top: 15px;
+    border: 1px solid blueviolet;
+    outline: none;
+    color: white;
+    padding: 5px 15px;
+    width: 75%;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .button-submit {
+    margin-top: 20px;
+    text-align: center;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .button-submit button {
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid blueviolet;
+    width: 60%;
+    padding: 6px;
+    border-radius: 10px;
+  }
+  main .Main_Container .form_control .userlogin form .form_data .button-submit button:hover {
+    background-color: rgb(19, 10, 45);
+    border: 1px solid white;
+  }
+}/*# sourceMappingURL=index.css.map */
