@@ -43,11 +43,11 @@ main header .title .image h4 {
 main header .title button {
   border: none;
   outline: none;
+  display: none;
 }
 main header .title button svg {
   height: 20px;
   fill: white;
-  display: none;
 }
 main .main-container {
   padding: 10px;
@@ -110,7 +110,6 @@ main .main-container .user-section {
   padding: 20px;
   color: white;
   border-radius: 10px;
-  display: none;
 }
 main .main-container .user-section .room {
   margin: 20px 5px;
@@ -163,7 +162,6 @@ main .main-container .message-window-loader {
 main .main-container .message-window {
   width: 80%;
   padding: 0 0 0 10px;
-  display: none;
 }
 main .main-container .message-window .chat_head {
   color: white;
@@ -181,14 +179,10 @@ main .main-container .message-window .chat_head .roomAvatar {
   margin-left: 5px;
   align-items: center;
 }
-main .main-container .message-window .chat_head .roomAvatar .roomImage {
-  background: white;
-  padding: 10px;
+main .main-container .message-window .chat_head .roomAvatar .roomImage img {
+  height: 52px;
+  width: 52px;
   border-radius: 100%;
-}
-main .main-container .message-window .chat_head .roomAvatar .roomImage svg {
-  height: 20px;
-  fill: black;
 }
 main .main-container .message-window .chat_head .roomAvatar .expand {
   display: flex;
@@ -315,16 +309,13 @@ main .main-container .message-window .form_input .sendmessage button {
 
 @media screen and (max-width: 550px) {
   main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 100%;
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
-    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
   }
   main header {
+    margin: 0;
+    padding: 0;
     width: 100%;
   }
   main header * {
@@ -333,7 +324,6 @@ main .main-container .message-window .form_input .sendmessage button {
   main header .title {
     border: none;
     border-radius: 10px 10px 0 0;
-    padding: 10px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -343,43 +333,46 @@ main .main-container .message-window .form_input .sendmessage button {
     align-items: center;
   }
   main header .title .image img {
-    height: 60px;
+    height: 40px;
   }
   main header .title .image h4 {
     margin-left: 20px;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
   }
   main header .title button {
     border: none;
     outline: none;
-  }
-  main header .title button svg {
-    height: 20px;
-    fill: white;
     display: block;
   }
+  main header .title button svg {
+    height: 15px;
+    fill: white;
+  }
   main .main-container {
+    margin: 0;
     border: none;
-    border-radius: 0 0 20px 20px;
     height: 100%;
     display: flex;
     background-color: rgb(20, 18, 27);
+    overflow: hidden;
   }
   main .main-container * {
     background: none;
   }
   main .main-container .user-section {
     position: absolute;
-    width: 94%;
+    height: 70%;
+    width: 91%;
     background-color: rgb(15, 15, 17);
     border-radius: 0 0 20px 20px;
-    padding: 12px;
-    height: 70vh;
+    padding: 10px;
     color: white;
     box-shadow: 0px 15px 20px -20px white;
     border: none;
-    visibility: hidden;
+    display: none;
   }
   main .main-container .user-section .room {
     margin: 20px 5px;
@@ -432,41 +425,45 @@ main .main-container .message-window .form_input .sendmessage button {
   }
   main .main-container .message-window {
     width: 100%;
+    height: 100%;
+    padding: 0;
   }
   main .main-container .message-window .chat_head {
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 12px;
+    padding: 5px 2px;
   }
   main .main-container .message-window .chat_head .roomAvatar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 40%;
-    margin-left: 5px;
   }
   main .main-container .message-window .chat_head .roomAvatar .roomImage {
     background: white;
-    padding: 10px;
+    padding: 4px;
     border-radius: 100%;
   }
   main .main-container .message-window .chat_head .roomAvatar .roomImage svg {
-    height: 20px;
+    height: 15px;
     fill: black;
+  }
+  main .main-container .message-window .chat_head .roomAvatar .Name h4 {
+    font-size: 14px;
   }
   main .main-container .message-window .chat_head .options {
     margin-right: 5px;
   }
   main .main-container .message-window .chat_head .options svg {
-    height: 20px;
+    height: 15px;
     fill: white;
   }
   main .main-container .message-window .chats {
     padding: 20px 3px;
     border-radius: 0px 0px 20px 20px;
-    height: 60vh;
+    height: 65vh;
     border: none;
     background-color: rgb(16, 12, 26);
     overflow-y: auto;
@@ -531,9 +528,6 @@ main .main-container .message-window .form_input .sendmessage button {
     height: auto;
     align-items: center;
     padding: 12px;
-  }
-  main .main-container .message-window .form_input {
-    padding: 0 0 50px 0;
   }
   main .main-container .message-window .form_input .sendmessage {
     padding-bottom: 10px;

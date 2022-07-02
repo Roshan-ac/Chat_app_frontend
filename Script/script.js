@@ -30,11 +30,9 @@ const user_login = document.querySelector('.userlogin')
 const room_list = document.querySelector('.roomList')
 const admin_div=document.querySelector('.admin');
 const Room_Name=document.querySelector(".Name");
-const loader=document.querySelector('.loader');
 const usersection=document.querySelector('.user-section');
 const message_window=document.querySelector('.message-window');
-const message_window_loader=document.querySelector('.message-window-loader');
-const user_loader=document.querySelector('.user-section-loader');
+
 
 form_input.addEventListener('submit', function (e) {
     e.preventDefault()
@@ -97,23 +95,6 @@ socket.on('receive', data => {
 })
 
 socket.on('roomUser', ({ room, user }) => {
-
-if(user && room){
-   message_window.style.display='block'
-   loader.style.display='none'
-   message_window_loader.style.display='none'
-   user_loader.style.display='none'
-   usersection.style.display == "block"
-   if (usersection.style.display == "block") {
-        usersection.style.display = "none";
-
-}
- else {
-    usersection.style.display = "block"
-
-
-}
-}
 let admin=user[0].username
 let html=`<h4>${admin}</h4>`
 admin_div.innerHTML=html
@@ -133,7 +114,11 @@ socket.on('left', username => {
 })
 
 
-
+function videocall(){
+socket.emit('stream',data=>{
+    console.log(data)
+})
+}
 
 
 

@@ -31,16 +31,6 @@
             </div>
         </header>
         <div class="main-container">
-            <div class="loader user-section-loader">
-                <span class="skeleton-box" style="width:100%;"></span>
-                <span class="skeleton-box" style="width:90%;"></span>
-                <span class="skeleton-box" style="width:100%;"></span>
-                <span class="skeleton-box" style="width:88%;"></span>
-                <span class="skeleton-box" style="width:70%;"></span>
-                <span class="skeleton-box" style="width:50%;"></span>
-                <span class="skeleton-box" style="width:100%;"></span>
-                <span class="skeleton-box" style="width:80%;"></span>
-            </div>
             <div class="user-section">
 
                 <div class="room">
@@ -65,21 +55,17 @@
 
                 </div>
             </div>
-            <div class="loader message-window-loader">
-                <span class="skeleton-box" style="width:100%;"></span>
-                <span class="skeleton-box" style="width:90%;"></span>
-                <span class="skeleton-box" style="width:100%;"></span>
-                <span class="skeleton-box" style="width:88%;"></span>
-                <span class="skeleton-box" style="width:70%;"></span>
-                <span class="skeleton-box" style="width:50%;"></span>
-                <span class="skeleton-box" style="width:100%;"></span>
-                <span class="skeleton-box" style="width:80%;"></span>
-            </div>
+
             <div class="message-window">
                 <div class="chat_head">
                     <div class="roomAvatar">
                         <div class="roomImage">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"/></svg>
+                            <label for="picField">
+                            <img  id="outImage" src="../assets/upload.png" alt="img" >
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"/></svg> -->
+                           
+      <input id="picField"   type="file"  style="display: none;" />
+                            </label>
                         </div>
                         <div class="Name">
 
@@ -89,7 +75,7 @@
                         </div>
                     </div>
                     <div class="options">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"/></svg>
+                        <svg onclick="videocall()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M384 112v288c0 26.51-21.49 48-48 48h-288c-26.51 0-48-21.49-48-48v-288c0-26.51 21.49-48 48-48h288C362.5 64 384 85.49 384 112zM576 127.5v256.9c0 25.5-29.17 40.39-50.39 25.79L416 334.7V177.3l109.6-75.56C546.9 87.13 576 102.1 576 127.5z"/></svg>
                     </div>
                 </div>
@@ -110,16 +96,31 @@
     </main>
 </body>
 <script>
+    document.getElementById('picField').onchange = function(evt) {
+        var tgt = evt.target || window.event.srcElement,
+            files = tgt.files;
+
+        // FileReader support
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function() {
+                document.getElementById('outImage').src = fr.result;
+            }
+            fr.readAsDataURL(files[0]);
+        }
+    }
+
+
     const user_section = document.querySelector(".user-section");
 
 
     function show_hide() {
 
-        if (user_section.style.visibility == "visible") {
-            user_section.style.visibility = "hidden";
+        if (user_section.style.display == "block") {
+            user_section.style.display = "none";
 
         } else {
-            user_section.style.visibility = "visible"
+            user_section.style.display = "block"
 
         }
     }

@@ -41,10 +41,10 @@ main {
             button {
                 border: none;
                 outline: none;
+                display: none;
                 svg {
                     height: 20px;
                     fill: white;
-                    display: none;
                 }
             }
         }
@@ -101,7 +101,6 @@ main {
             padding: 20px;
             color: white;
             border-radius: 10px;
-            display: none;
             .room {
                 margin: 20px 5px;
                 .roomName {
@@ -160,7 +159,6 @@ main {
         .message-window {
             width: 80%;
             padding: 0 0 0 10px;
-            display: none;
             .chat_head {
                 color: white;
                 border-radius: 10px 10px 0 0;
@@ -176,12 +174,10 @@ main {
                     margin-left: 5px;
                     align-items: center;
                     .roomImage {
-                        background: white;
-                        padding: 10px;
-                        border-radius: 100%;
-                        svg {
-                            height: 20px;
-                            fill: black;
+                        img {
+                            height: 52px;
+                            width: 52px;
+                            border-radius: 100%;
                         }
                     }
                     .expand {
@@ -312,13 +308,12 @@ main {
 
 @media screen and(max-width:550px) {
     main {
-        position: absolute;
-        top: 50%;
-        left: 50%;
         width: 100%;
-        height: max-content;
-        transform: translate(-50%, -50%);
+        padding: 0;
+        margin: 0;
         header {
+            margin: 0;
+            padding: 0;
             * {
                 background-color: rgb(20, 18, 27);
             }
@@ -326,7 +321,6 @@ main {
             .title {
                 border: none;
                 border-radius: 10px 10px 0 0;
-                padding: 10px 40px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -334,45 +328,48 @@ main {
                     display: flex;
                     align-items: center;
                     img {
-                        height: 60px;
+                        height: 40px;
                     }
                     h4 {
                         margin-left: 20px;
                         color: white;
-                        font-size: 1.5rem;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        text-transform: capitalize;
                     }
                 }
                 button {
                     border: none;
                     outline: none;
+                    display: block;
                     svg {
-                        height: 20px;
+                        height: 15px;
                         fill: white;
-                        display: block;
                     }
                 }
             }
         }
         .main-container {
+            margin: 0;
             border: none;
-            border-radius: 0 0 20px 20px;
             height: 100%;
             display: flex;
             background-color: rgb(20, 18, 27);
+            overflow: hidden;
             * {
                 background: none;
             }
             .user-section {
                 position: absolute;
-                width: 94%;
+                height: 70%;
+                width: 91%;
                 background-color: rgb(15, 15, 17);
                 border-radius: 0 0 20px 20px;
-                padding: 12px;
-                height: 70vh;
+                padding: 10px;
                 color: white;
                 box-shadow: 0px 15px 20px -20px white;
                 border: none;
-                visibility: hidden;
+                display: none;
                 .room {
                     margin: 20px 5px;
                     .roomName {
@@ -432,32 +429,38 @@ main {
             }
             .message-window {
                 width: 100%;
+                height: 100%;
+                padding: 0;
                 .chat_head {
                     color: white;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    padding: 25px 12px;
+                    padding: 5px 2px;
                     .roomAvatar {
                         display: flex;
-                        justify-content: space-between;
+                        justify-content: space-around;
                         align-items: center;
                         width: 40%;
-                        margin-left: 5px;
                         .roomImage {
                             background: white;
-                            padding: 10px;
+                            padding: 4px;
                             border-radius: 100%;
                             svg {
-                                height: 20px;
+                                height: 15px;
                                 fill: black;
+                            }
+                        }
+                        .Name {
+                            h4 {
+                                font-size: 14px;
                             }
                         }
                     }
                     .options {
                         margin-right: 5px;
                         svg {
-                            height: 20px;
+                            height: 15px;
                             fill: white;
                         }
                     }
@@ -465,7 +468,7 @@ main {
                 .chats {
                     padding: 20px 3px;
                     border-radius: 0px 0px 20px 20px;
-                    height: 60vh;
+                    height: 65vh;
                     border: none;
                     background-color: rgb(16, 12, 26);
                     overflow-y: auto;
@@ -528,7 +531,6 @@ main {
                     }
                 }
                 .form_input {
-                    padding: 0 0 50px 0;
                     .sendmessage {
                         padding-bottom: 10px;
                         margin-left: 20px;
