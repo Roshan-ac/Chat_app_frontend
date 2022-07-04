@@ -18,7 +18,7 @@ formSubmit.addEventListener('submit', (e) => {
 
 
 async function Signup_handler() {
-    const user = await fetch('http://192.168.1.65:3000/api/signup', {
+    const user = await fetch('https://connect-me-server.herokuapp.com/api/signup', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -32,7 +32,7 @@ async function Signup_handler() {
 
 
 async function User_login(UserObj) {
-    const user = await fetch('http://192.168.1.65:3000/api/login', {
+    const user = await fetch('https://connect-me-server.herokuapp.com/api/login', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
