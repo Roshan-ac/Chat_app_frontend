@@ -1,5 +1,5 @@
-const socket = io('http://192.168.1.65:3000/')
-
+// const socket = io('http://192.168.1.65:3000/')
+const socket =io('https://connect-me-server.herokuapp.com/')
 //Client side handling
 const mainContainer = document.querySelector('.main-container')
 const form_input = document.querySelector('.form_input')
