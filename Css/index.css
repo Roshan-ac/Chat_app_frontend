@@ -1,296 +1,165 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: rgb(29, 18, 45);
-  font-family: "poppins", sans-serif;
-}
-
-body {
   box-sizing: border-box;
-  min-height: 100vh;
 }
 
+main {
+  background-color: rgb(24, 33, 44);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
 main .Main_Container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  color: white;
+  width: 50%;
 }
 main .Main_Container .title_bar {
   display: flex;
+  padding: 10px;
   justify-content: center;
   align-items: center;
 }
 main .Main_Container .title_bar .logo img {
-  height: 80px;
+  height: 50px;
 }
 main .Main_Container .title_bar .title {
-  color: white;
   margin-left: 20px;
 }
 main .Main_Container .title_bar .title h2 {
-  letter-spacing: 0.3rem;
-  font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
 }
 main .Main_Container .title_bar .title h4 {
-  margin-top: 6px;
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
   letter-spacing: 0.1rem;
-  text-align: center;
-  font-size: 0.8rem;
-}
-main .Main_Container .form_control {
-  margin-top: 10%;
-  border: 1px solid white;
-  background-color: rgb(24, 21, 33);
-  height: 70vh;
-  width: 70vh;
-  border-radius: 1px 100px 1px 100px;
-  box-shadow: 0px 15px 20px -20px white;
-}
-main .Main_Container .form_control * {
-  background: none;
 }
 main .Main_Container .form_control .userlogin {
-  padding: 2%;
-  margin: 10%;
+  border: 1px solid wheat;
+  border-radius: 0px 50px 0px 50px;
+  background-color: rgb(17, 25, 39);
+  padding: 10px;
+  margin-left: 30%;
 }
-main .Main_Container .form_control .userlogin form {
-  color: white;
+main .Main_Container .form_control .userlogin form .form_data {
+  margin: 20px;
 }
 main .Main_Container .form_control .userlogin form .form_data .username {
-  margin-top: 30px;
+  margin: 10px 0;
+}
+main .Main_Container .form_control .userlogin form .form_data .username label {
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
 }
 main .Main_Container .form_control .userlogin form .form_data .username input {
-  background-color: rgb(20, 18, 26);
-  margin-top: 20px;
-  border: 1px solid blueviolet;
-  outline: none;
+  border-radius: 20px;
   color: white;
-  padding: 15px 15px;
-  width: 75%;
+  outline: greenyellow;
+  border: 1px solid wheat;
+  background-color: rgb(30, 29, 52);
+  padding: 5px 20px;
+  width: 70%;
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.1rem;
+  margin: 5px 0 0;
 }
-main .Main_Container .form_control .userlogin form .form_data .roomname {
-  margin-top: 50px;
+main .Main_Container .form_control .userlogin form .form_data .email {
+  margin: 10px 0;
 }
-main .Main_Container .form_control .userlogin form .form_data .roomname input {
-  background-color: rgb(20, 18, 26);
-  margin-top: 20px;
-  border: 1px solid blueviolet;
-  outline: none;
+main .Main_Container .form_control .userlogin form .form_data .email label {
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+}
+main .Main_Container .form_control .userlogin form .form_data .email input {
+  border-radius: 20px;
   color: white;
-  padding: 15px 15px;
-  width: 75%;
+  outline: greenyellow;
+  border: 1px solid wheat;
+  background-color: rgb(30, 29, 52);
+  padding: 5px 20px;
+  width: 70%;
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.1rem;
+  margin: 5px 0 0;
+}
+main .Main_Container .form_control .userlogin form .form_data .password {
+  margin: 10px 0;
+}
+main .Main_Container .form_control .userlogin form .form_data .password label {
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+}
+main .Main_Container .form_control .userlogin form .form_data .password input {
+  border-radius: 20px;
+  color: white;
+  outline: greenyellow;
+  border: 1px solid wheat;
+  background-color: rgb(30, 29, 52);
+  padding: 5px 20px;
+  width: 70%;
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.1rem;
+  margin: 5px 0 0;
 }
 main .Main_Container .form_control .userlogin form .form_data .button-submit {
-  margin-top: 60px;
-  text-align: center;
+  width: 50%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
 }
 main .Main_Container .form_control .userlogin form .form_data .button-submit button {
-  letter-spacing: 0.1rem;
+  border-radius: 50px;
   font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
   color: white;
-  border: 1px solid blueviolet;
-  width: 30%;
-  padding: 8px;
-  border-radius: 30px;
-}
-main .Main_Container .form_control .userlogin form .form_data .button-submit button:hover {
-  background-color: rgb(19, 10, 45);
-  border: 1px solid white;
+  outline: greenyellow;
+  border: 1px solid wheat;
+  background-color: rgb(30, 29, 52);
+  width: 40%;
+  padding: 5px 10px;
 }
 
 @media screen and (max-width: 550px) {
+  main {
+    max-height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
   main .Main_Container {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-  }
-  main .Main_Container .title_bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  main .Main_Container .title_bar .logo img {
-    height: 50px;
-  }
-  main .Main_Container .title_bar .title {
-    color: white;
-    margin-left: 15px;
-  }
-  main .Main_Container .title_bar .title h2 {
-    letter-spacing: 0.3rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  main .Main_Container .title_bar .title h4 {
-    margin-top: 6px;
-    letter-spacing: 0.1rem;
-    text-align: center;
-    font-size: 0.7rem;
+    width: 100%;
+    margin: 0;
   }
   main .Main_Container .form_control {
-    margin-top: 10%;
-    border: 1px solid white;
-    background-color: rgb(24, 21, 33);
-    height: 65vh;
-    width: 50vh;
-    border-radius: 1px 40px 1px 40px;
-    box-shadow: 0px 15px 20px -20px white;
-  }
-  main .Main_Container .form_control * {
-    background: none;
-  }
-  main .Main_Container .form_control .userlogin {
-    padding: 2%;
-    margin: 10%;
-  }
-  main .Main_Container .form_control .userlogin form {
-    color: white;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .username {
-    margin-top: 30px;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .username input {
-    background-color: rgb(20, 18, 26);
-    margin-top: 20px;
-    border: 1px solid blueviolet;
-    outline: none;
-    color: white;
-    padding: 10px 15px;
-    width: 75%;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .roomname {
-    margin-top: 50px;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .roomname input {
-    background-color: rgb(20, 18, 26);
-    margin-top: 20px;
-    border: 1px solid blueviolet;
-    outline: none;
-    color: white;
-    padding: 10px 15px;
-    width: 75%;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .button-submit {
-    margin-top: 60px;
-    text-align: center;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .button-submit button {
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    color: white;
-    border: 1px solid blueviolet;
-    width: 60%;
-    padding: 6px;
-    border-radius: 10px;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .button-submit button:hover {
-    background-color: rgb(19, 10, 45);
-    border: 1px solid white;
-  }
-}
-@media screen and (max-height: 400px) {
-  main .Main_Container {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-  }
-  main .Main_Container .title_bar {
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-  main .Main_Container .title_bar .logo img {
-    height: 50px;
-  }
-  main .Main_Container .title_bar .title {
-    color: white;
-    margin-left: 15px;
-  }
-  main .Main_Container .title_bar .title h2 {
-    letter-spacing: 0.3rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  main .Main_Container .title_bar .title h4 {
-    margin-top: 6px;
-    letter-spacing: 0.1rem;
-    text-align: center;
-    font-size: 0.7rem;
-  }
-  main .Main_Container .form_control {
-    position: fixed;
-    z-index: auto;
-    margin-top: 5%;
-    border: 1px solid white;
-    background-color: rgb(24, 21, 33);
-    height: 65vh;
-    width: 50vh;
-    border-radius: 1px 40px 1px 40px;
-    box-shadow: 0px 15px 20px -20px white;
-  }
-  main .Main_Container .form_control * {
-    background: none;
   }
   main .Main_Container .form_control .userlogin {
-    padding: 2%;
-    margin: 10%;
-    display: flex;
+    margin: 0;
   }
-  main .Main_Container .form_control .userlogin form {
-    color: white;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .username {
-    margin-top: 10px;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .username input {
-    background-color: rgb(20, 18, 26);
-    margin-top: 15px;
-    border: 1px solid blueviolet;
-    outline: none;
-    color: white;
-    padding: 5px 15px;
-    width: 75%;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .roomname {
-    margin-top: 20px;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .roomname input {
-    background-color: rgb(20, 18, 26);
-    margin-top: 15px;
-    border: 1px solid blueviolet;
-    outline: none;
-    color: white;
-    padding: 5px 15px;
-    width: 75%;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .button-submit {
-    margin-top: 20px;
-    text-align: center;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .button-submit button {
-    letter-spacing: 0.1rem;
-    font-size: 1rem;
-    color: white;
-    border: 1px solid blueviolet;
-    width: 60%;
-    padding: 6px;
-    border-radius: 10px;
-  }
-  main .Main_Container .form_control .userlogin form .form_data .button-submit button:hover {
-    background-color: rgb(19, 10, 45);
-    border: 1px solid white;
+  main .Main_Container .form_control .userlogin .formSubmit .form_data .button-submit {
+    width: unset;
+    justify-content: start;
   }
 }/*# sourceMappingURL=index.css.map */

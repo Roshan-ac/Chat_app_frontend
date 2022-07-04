@@ -111,6 +111,7 @@ main .main-container .user-section {
   padding: 20px;
   color: white;
   border-radius: 10px;
+  display: none;
 }
 main .main-container .user-section .userAccountSection {
   padding: 10px;
@@ -150,7 +151,9 @@ main .main-container .user-section .userList .friends {
   cursor: pointer;
   border-radius: 0 50px 50px 0px;
   padding: 5px 10px;
-  width: 60%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   justify-content: space-between;
   margin: 10px 0 0 0;
   background-color: rgba(223, 237, 95, 0.217);
@@ -160,6 +163,12 @@ main .main-container .user-section .userList .friends img {
   position: relative;
   height: 20px;
   width: 20px;
+}
+main .main-container .user-section .userList .friends h4 {
+  margin-left: 5px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 main .main-container .user-section .roomSection .roomName h4 {
   cursor: pointer;
@@ -179,6 +188,7 @@ main .message-window-loader {
 main .message-window {
   width: 80%;
   padding: 0 0 0 10px;
+  display: none;
 }
 main .message-window .chat_head {
   color: white;
@@ -192,7 +202,7 @@ main .message-window .chat_head {
 main .message-window .chat_head .roomAvatar {
   display: flex;
   justify-content: space-around;
-  width: 30%;
+  width: 45%;
   margin-left: 5px;
   align-items: center;
 }
@@ -214,6 +224,9 @@ main .message-window .chat_head .roomAvatar .expand svg:hover {
   background-color: rgba(255, 255, 255, 0.13);
   border-radius: 45%;
   fill: greenyellow;
+}
+main .message-window .chat_head .roomAvatar .Name h4 {
+  font-size: 1rem;
 }
 main .message-window .chat_head .options {
   margin-right: 5px;
@@ -448,7 +461,6 @@ main .message-window .form_input .sendmessage button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 40%;
   }
   main .main-container .message-window .chat_head .roomAvatar .roomImage {
     border-radius: 100%;

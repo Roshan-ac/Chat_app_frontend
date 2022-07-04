@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
@@ -27,19 +27,24 @@
 
             <div class="form_control">
                 <div class="userlogin">
-                    <form action="./pages/chat.html">
+                    <form class="formSubmit" action="./pages/chat.html">
                         <div class="form_data">
                             <div class="username">
                                 <label for="">User Name</label><br>
-                                <input type="text" name="username" required placeholder="Your username">
+                                <input class="UserName" type="text" name="username" required placeholder="Your username">
                             </div>
-                            <div class="roomname">
-                                <label for="">Room Name</label><br>
-                                <input type="text" name="roomname" required placeholder="Room name">
+                            <div class="email">
+                                <label for="">Email</label><br>
+                                <input class="Email" type="text" name="email" required placeholder="email address">
+                            </div>
+                            <div class="password">
+                                <label for="">password</label><br>
+                                <input class="Password" type="text" name="password" required placeholder="password">
                             </div>
                             <div class="button-submit">
                                 <button type="submit">Create</button>
                             </div>
+
                         </div>
                     </form>
                 </div>
@@ -47,5 +52,6 @@
         </div>
     </main>
 </body>
+<script src="../Public/Script/auth.js"></script>
 
 </html>
