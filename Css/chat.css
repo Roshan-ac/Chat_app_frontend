@@ -1,7 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
 * {
   margin: 0;
   padding: 0;
-  background-color: rgb(29, 18, 45);
   font-family: "poppins", sans-serif;
 }
 
@@ -13,10 +13,8 @@ main {
   transform: translate(-50%, -50%);
 }
 main header {
-  width: 100%;
-}
-main header * {
   background-color: rgb(20, 18, 27);
+  width: 100%;
 }
 main header .title {
   border-radius: 10px 10px 0 0;
@@ -41,13 +39,7 @@ main header .title .image h4 {
   font-size: 1.5rem;
 }
 main header .title button {
-  border: none;
-  outline: none;
   display: none;
-}
-main header .title button svg {
-  height: 20px;
-  fill: white;
 }
 main .main-container {
   display: flex;
@@ -58,9 +50,6 @@ main .main-container {
   height: max-content;
   display: flex;
   background-color: rgb(20, 18, 27);
-}
-main .main-container * {
-  background: none;
 }
 main .main-container .user-section-loader {
   background-color: rgb(27, 16, 53);
@@ -117,12 +106,12 @@ main .main-container .user-section .userAccountSection {
   padding: 10px;
 }
 main .main-container .user-section .userAccountSection .userAvatar {
-  cursor: pointer;
   display: flex;
   justify-content: start;
   align-items: center;
 }
 main .main-container .user-section .userAccountSection .userAvatar .userImage img {
+  cursor: pointer;
   height: 30px;
   border-radius: 100%;
   width: 30px;
@@ -130,6 +119,20 @@ main .main-container .user-section .userAccountSection .userAvatar .userImage im
 main .main-container .user-section .userAccountSection .userAvatar .userName {
   margin-left: 10px;
   color: white;
+}
+main .main-container .user-section .userAccountSection .userAvatar .logout-button {
+  margin-left: 60px;
+}
+main .main-container .user-section .userAccountSection .userAvatar .logout-button img {
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(49, 99, 71, 0.174);
+  border-radius: 50px;
+  padding: 2px;
 }
 main .main-container .user-section .title {
   margin: 50px 0 0 0;
@@ -166,9 +169,6 @@ main .main-container .user-section .userList .friends img {
 }
 main .main-container .user-section .userList .friends h4 {
   margin-left: 5px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
 }
 main .main-container .user-section .roomSection .roomName h4 {
   cursor: pointer;
@@ -190,7 +190,10 @@ main .message-window {
   padding: 0 0 0 10px;
   display: none;
 }
-main .message-window .chat_head {
+main .message-window .chat_container {
+  display: none;
+}
+main .message-window .chat_container .chat_head {
   color: white;
   border-radius: 10px 10px 0 0;
   background-color: rgb(27, 16, 53);
@@ -199,45 +202,52 @@ main .message-window .chat_head {
   align-items: center;
   padding: 25px 12px;
 }
-main .message-window .chat_head .roomAvatar {
+main .message-window .chat_container .chat_head .roomAvatar {
   display: flex;
   justify-content: space-around;
-  width: 45%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   margin-left: 5px;
   align-items: center;
 }
-main .message-window .chat_head .roomAvatar .roomImage img {
+main .message-window .chat_container .chat_head .roomAvatar .roomImage img {
   height: 52px;
   width: 52px;
   border-radius: 100%;
 }
-main .message-window .chat_head .roomAvatar .expand {
+main .message-window .chat_container .chat_head .roomAvatar .expand {
+  margin-left: 5px;
   display: flex;
   align-items: center;
 }
-main .message-window .chat_head .roomAvatar .expand svg {
-  height: 20px;
+main .message-window .chat_container .chat_head .roomAvatar .expand svg {
+  height: 15px;
   fill: white;
   padding: 5px;
 }
-main .message-window .chat_head .roomAvatar .expand svg:hover {
+main .message-window .chat_container .chat_head .roomAvatar .expand svg:hover {
   background-color: rgba(255, 255, 255, 0.13);
   border-radius: 45%;
   fill: greenyellow;
 }
-main .message-window .chat_head .roomAvatar .Name h4 {
+main .message-window .chat_container .chat_head .roomAvatar .Name {
+  margin-left: 5px;
+}
+main .message-window .chat_container .chat_head .roomAvatar .Name h4 {
   font-size: 1rem;
 }
-main .message-window .chat_head .options {
+main .message-window .chat_container .chat_head .options {
+  margin-left: 5px;
   margin-right: 5px;
 }
-main .message-window .chat_head .options svg {
+main .message-window .chat_container .chat_head .options svg {
   height: 18px;
   fill: white;
   margin-left: 15px;
   padding: 7px;
 }
-main .message-window .chat_head .options svg:hover {
+main .message-window .chat_container .chat_head .options svg:hover {
   background-color: rgba(255, 255, 255, 0.098);
   padding: 7px;
   border-radius: 50%;
@@ -326,6 +336,7 @@ main .message-window .form_input .sendmessage input {
   border-radius: 20px;
   color: white;
   padding: 10px 20px;
+  background-color: rgb(20, 10, 29);
 }
 main .message-window .form_input .sendmessage button {
   letter-spacing: 0.2rem;
@@ -349,9 +360,6 @@ main .message-window .form_input .sendmessage button {
   main header {
     padding: 0;
     width: 100%;
-  }
-  main header * {
-    background-color: rgb(20, 18, 27);
   }
   main header .title {
     border: none;
@@ -378,6 +386,7 @@ main .message-window .form_input .sendmessage button {
     border: none;
     outline: none;
     display: block;
+    background: none;
   }
   main header .title button svg {
     height: 15px;
@@ -392,9 +401,6 @@ main .message-window .form_input .sendmessage button {
     display: flex;
     background-color: rgb(20, 18, 27);
     overflow: hidden;
-  }
-  main .main-container * {
-    background: none;
   }
   main .main-container .user-section {
     position: absolute;
@@ -426,7 +432,9 @@ main .message-window .form_input .sendmessage button {
     cursor: pointer;
     border-radius: 0 50px 50px 0px;
     padding: 5px 10px;
-    width: 40%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     justify-content: space-between;
     margin: 10px 0 0 0;
     background-color: rgba(223, 237, 95, 0.217);
@@ -469,6 +477,22 @@ main .message-window .form_input .sendmessage button {
     height: 35px;
     width: 35px;
     border-radius: 100%;
+  }
+  main .main-container .message-window .chat_head .roomAvatar .expand {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+  }
+  main .main-container .message-window .chat_head .roomAvatar .expand svg {
+    height: 12px;
+    width: 12px;
+    fill: white;
+    padding: 5px;
+  }
+  main .main-container .message-window .chat_head .roomAvatar .expand svg:hover {
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 45%;
+    fill: greenyellow;
   }
   main .main-container .message-window .chat_head .roomAvatar .Name h4 {
     font-size: 14px;
@@ -563,6 +587,7 @@ main .message-window .form_input .sendmessage button {
     border-radius: 10px;
     color: white;
     padding: 7px 10px;
+    background-color: rgb(20, 10, 29);
   }
   main .main-container .message-window .form_input .sendmessage button {
     letter-spacing: 0.2rem;
@@ -572,5 +597,113 @@ main .message-window .form_input .sendmessage button {
     border: none;
     border-radius: 100px;
     background-color: rgb(38, 25, 85);
+  }
+}
+.customAlert {
+  display: none;
+  text-align: center;
+  font-family: "Noto Sans", "Helvetica";
+  position: absolute;
+  max-width: 30%;
+  min-width: 250px !important;
+  min-height: 15%;
+  top: 50%;
+  padding: 5px;
+  transform: translate(50%, -50%);
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: rgb(27, 23, 63);
+}
+.customAlert .message {
+  text-align: center;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+}
+.customAlert input[type=button] {
+  margin: 10px;
+  text-align: center;
+  color: white;
+  background-color: #367f68;
+  border: none;
+  padding: 2px;
+  border-radius: 50px;
+  width: 70px;
+}
+.customAlert input[type=button]:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  background: #05cd99;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 550px) {
+  .customAlert {
+    font-family: "Noto Sans", "Helvetica";
+    position: absolute;
+    max-width: 25%;
+    min-width: 250px !important;
+    min-height: 20%;
+    top: 50%;
+    padding: 20px;
+    transform: translate(20%, -80%);
+    box-sizing: border-box;
+    background-color: rgb(27, 23, 63);
+  }
+  .customAlert .message {
+    padding: 5px;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+  }
+  .customAlert input[type=button] {
+    margin: 10px;
+    text-align: center;
+    color: white;
+    background-color: #367f68;
+    border: none;
+    padding: 2px;
+    border-radius: 50px;
+    width: 70px;
+  }
+  .customAlert input[type=button]:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: #05cd99;
   }
 }/*# sourceMappingURL=chat.css.map */

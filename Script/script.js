@@ -1,5 +1,5 @@
-// const socket = io('http://192.168.1.65:3000/')
-const socket =io('https://connect-me-server.herokuapp.com/')
+const socket = io('http://192.168.1.65:3000/')
+// const socket =io('https://connect-me-server.herokuapp.com/')
 //Client side handling
 const mainContainer = document.querySelector('.main-container')
 const form_input = document.querySelector('.form_input')
@@ -118,13 +118,7 @@ socket.on('connection', (state) => {
 // // Make connection to socketio
 socket.emit('New-user-joined', name, emailaddr);
 socket.on('user-joined', (name,id) => {
-
-    alert(`${name} want to chat with you`)
-    if(alert) {
-        append(`Now you can call each other`, name)
-        appendChatHead(name,id)
-    }
-
+        costume_alert(name,id)
 })
 
 socket.on('receive', data => {
@@ -167,11 +161,10 @@ socket.on('left', username => {
 function handle_join_chat(id) {
     const div=document.getElementById(id)
     const Name= div.children[1].innerText
-
     appendChatHead(Name,id)
     const str=userName.children[1].defaultValue
+   $('.chat_container').css('display','block')
     const ids=str.replace('/','')
-    console.log(name,id)
      socket.emit('Joined_Chat',name,ids,id);
     }
 
@@ -187,4 +180,33 @@ let hyper=`<h4>${name}</h4>
 `
 userName.innerHTML=hyper
 
+}
+
+
+
+
+$('.logout-button img').click(()=>{
+   localStorage.removeItem('user')
+   window.location.href = "../index.html";
+})
+
+
+
+
+
+//code for alert box
+$(`.customAlert input[type='button']`).click((e)=>{
+const checked=e.currentTarget.defaultValue
+if(checked=='ok'){
+$('.customAlert').css('display','none')
+append(`Now you can call each other`, name)
+$('.chat_container').css('display','block')
+}
+})
+
+
+function costume_alert(name,id){
+    appendChatHead(name,id)
+    $('.customAlert p').text(`${name} request you to join the chat`)
+    $('.customAlert').css('display','block')
 }

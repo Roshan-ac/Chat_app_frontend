@@ -4,54 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Css/index.css">
-    <title>Connect Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/auth.css">
+    <script defer type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./Script/auth.js"></script>
+    <title>Chat App || Signup</title>
+
 </head>
 
 <body>
-    <main>
-        <div class="Main_Container">
-            <div class="title_bar">
-                <div class="logo">
-                    <img src="./assets/msg.svg" alt="">
-                </div>
-                <div class="title">
-                    <h2>Welcome to iChat</h2>
-                    <h4>A realtime messaging app for you</h4>
-                </div>
+    <div class="login-page">
+        <div class="title">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="">
             </div>
-
-            <div class="form_control">
-                <div class="userlogin">
-                    <form class="formSubmit" action="./pages/chat.html">
-                        <div class="form_data">
-                            <div class="username">
-                                <label for="">User Name</label><br>
-                                <input class="UserName" type="text" name="username" required placeholder="Your username">
-                            </div>
-                            <div class="email">
-                                <label for="">Email</label><br>
-                                <input class="Email" type="text" name="email" required placeholder="email address">
-                            </div>
-                            <div class="password">
-                                <label for="">password</label><br>
-                                <input class="Password" type="text" name="password" required placeholder="password">
-                            </div>
-                            <div class="button-submit">
-                                <button type="submit">Create</button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
+            <div class="text">
+                <h3>Anonymous Chat</h3>
             </div>
         </div>
-    </main>
+        <div class="form">
+            <form class="register-form">
+                <input id="username" type="text" placeholder="name" />
+                <input id="emailaddress" type="text" placeholder="email address" />
+                <input id="password" type="password" placeholder="password" />
+                <button type="submit">create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form">
+                <input id="UserName" type="text" placeholder="username" />
+                <input id="Password" type="password" placeholder="password" />
+                <button type="submit">login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
+        </div>
+    </div>
 </body>
-<script src="./Script/auth.js"></script>
 
 </html>

@@ -1,14 +1,27 @@
+// global Variables
+var url='https://connect-me-server.herokuapp.com'
+// var url='http://192.168.1.65:3000'
 
 
-const formSubmit = document.querySelector('.formSubmit');
-formSubmit.addEventListener('submit', (e) => {
+
+$('.message a').click(function () {
+    $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+});
+
+
+
+
+
+
+
+
+$(".login-form").on('submit', (e) => {
     e.preventDefault();
-    const username = document.querySelector('.UserName').value;
-    const email = document.querySelector('.Email').value;
-    const password = document.querySelector('.Password').value;
+    var username = $('#UserName').val()
+    var password = $('#Password').val()
+
     const UserObj = {
         name: username,
-        email: email,
         password: password
     }
 
@@ -16,32 +29,50 @@ formSubmit.addEventListener('submit', (e) => {
 })
 
 
+$(".register-form").on('submit', (e) => {
+    e.preventDefault()
+    var username = $('#username').val()
+    var emailaddress = $('#emailaddress').val()
+    var password = $('#password').val()
 
-async function Signup_handler() {
-    const user = await fetch('https://connect-me-server.herokuapp.com/api/signup', {
+    const UserObj = {
+        name: username,
+        email: emailaddress,
+        password: password
+    }
+
+    Signup_handler(UserObj);
+})
+
+
+async function Signup_handler(UserObj) {
+    const user = await fetch(`${url}/api/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(UserObj)
     })
-  
+    const json = await user.json()
+    if (json.success) {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    }
 }
 
 
 
 
 async function User_login(UserObj) {
-    const user = await fetch('https://connect-me-server.herokuapp.com/api/login', {
+    const user = await fetch(`${url}/api/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(UserObj)
     })
-const json = await user.json()
-localStorage.setItem('user',JSON.stringify(json))
-    if(json){
+    const json = await user.json()
+    localStorage.setItem('user', JSON.stringify(json))
+    if (json) {
         window.location.href = "./pages/chat.html";
     }
 }
