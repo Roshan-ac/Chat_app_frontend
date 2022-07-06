@@ -45,7 +45,7 @@ main {
         display: flex;
         padding: 10px;
         border: 2px solid blueviolet;
-        height: max-content;
+        height: 80vh;
         display: flex;
         background-color: rgb(20, 18, 27);
         .user-section-loader {
@@ -184,7 +184,6 @@ main {
         padding: 0 0 0 10px;
         display: none;
         .chat_container {
-            display: none;
             .chat_head {
                 color: white;
                 border-radius: 10px 10px 0 0;
@@ -248,7 +247,7 @@ main {
         }
         .chats {
             padding: 20px 0;
-            height: 55vh;
+            height: 50vh;
             background-color: rgb(26, 22, 44);
             border-radius: 0 0 10px 10px;
             overflow-y: auto;
@@ -387,10 +386,10 @@ main {
         .main-container {
             margin: 0;
             border: none;
-            height: max-content;
             display: flex;
             background-color: rgb(20, 18, 27);
             overflow: hidden;
+            height: 90vh;
             .user-section {
                 position: absolute;
                 height: 70%;
@@ -500,7 +499,7 @@ main {
                 .chats {
                     padding: 20px 3px;
                     border-radius: 0px 0px 20px 20px;
-                    height: 65vh;
+                    height: 60vh;
                     border: none;
                     background-color: rgb(16, 12, 26);
                     overflow-y: auto;

@@ -1,212 +1,167 @@
+/*
+
+         Hello folks i'm creating realtime chat application using Jquery and plain html,css. 
+         I've been working on this project since 1 week, during these days i made this project
+         so far, and there is more things left for making these project cool and interactive.
+         To be honest i'll gratefull for all contributers and always welcome you geek people
+         for contribute some cool stuffs on these project
+         
+                                                                 Author: Roshan acharya [aka Cyber-geek]
+*/
+
+
+
+
+
+// ................All code goes from here.................................
+// start...........
+
+// Global variable declearation containing socket url,and ringtone for outgoins and incomming messages 
 // const socket = io('http://192.168.1.65:3000/')
 const socket =io('https://connect-me-server.herokuapp.com/')
-//Client side handling
-const mainContainer = document.querySelector('.main-container')
-const form_input = document.querySelector('.form_input')
-const MessageBody = document.querySelector(".chats")
-const user_list = document.querySelector(".userList")
-const user_count = document.querySelector('.count')
-const Main = document.querySelector(".Main");
-const user_login = document.querySelector('.userlogin')
-const roomName = document.querySelector('.roomName')
-const admin_div = document.querySelector('.admin');
-const userName = document.querySelector(".userName");
-const usersection = document.querySelector('.user-section');
-const message_window = document.querySelector('.message-window');
-
-
-
-
-
 const outgoing = new Audio('../assets/outgoing.mp3')
 const incoming = new Audio('../assets/incoming.mp3')
+var SenderName = ""
+var SenderEmail = "";
 
 
-const userInfo = localStorage.getItem('user')
-const userData = JSON.parse(userInfo)
-const name = userData.Name;
-const emailaddr = userData.Email
-
-
-
-
-
-
-
-
-
-form_input.addEventListener('submit', (e)=> {
-    e.preventDefault()
-    const Messageinp = document.getElementById('Messageinp')
-    const message = Messageinp.value
-    const userName=document.querySelector('.Name')
-    const str=userName.children[1].defaultValue
-    const id=str.replace('/','')
-    if (message) {
-        socket.emit('Message', message,id);
-        appendMessage(message, 'you', 'outgoing')
-        outgoing.play()
-        Messageinp.value = ""
-    }
-
-})
-
-
-const append = (message) => {
-    const MessageElem = document.createElement('div')
-    MessageElem.classList.add("user-joined")
-    const para = document.createElement('h5')
-    para.innerText = message
-    MessageElem.appendChild(para)
-    MessageBody.append(MessageElem)
-    MessageBody.scrollTop = MessageBody.scrollHeight
-    outgoing.play()
+// Retreving Data from localStroge which was stored after successfull authenticate
+if (localStorage.getItem('user')) {
+    const authData = JSON.parse(localStorage.getItem('user'))
+    const { Name, Email } = authData
+    SenderName = Name;
+    SenderEmail = Email;
+    socket.emit('NewUser', Name, Email)
+}
+else {
+    window.location.href = '../index.html'
 }
 
-const appendMessage = (message, name, state) => {
-    const MessageElem = document.createElement('div');
-    MessageElem.classList.add('message_body');
 
-    const hyper = `
-<div class="message ${state}">
-    <h5>${name}</h5>
-    <p>${message}</p>
-</div>`
 
-    MessageElem.innerHTML = hyper
-    MessageBody.append(MessageElem)
 
-    if (state == "incoming") {
-        incoming.play()
-    }
 
-    MessageBody.scrollTop = MessageBody.scrollHeight
+//..............Handling socket event................................. 
+socket.on('UserConnected', user => {
+    appendUser(user);
+})
+socket.on('UserList', (userlist) => {
+    appendUserList(userlist)
+    console.log('someone conected')
+})
+
+socket.on('Request_Join', (Name, Id) => {
+    handle_user_Connection(Name, Id)
+})
+
+socket.on('connected', (Name, Id) => {
+    console.log(Name,Id);
+    appendChatting(Name,Id,"true");
+})
+
+
+
+// Handling user proper connection for establish chatting functionality
+function handle_joined_chat(ReceiverId){
+    const SenderId = $('.userName').find('input').attr('id')
+    socket.emit('UserChatRequest', { SenderName: SenderName, SenderId: SenderId, ReceiverId: ReceiverId })
 }
 
-socket.on('connection', (state) => {
-    message_window.style.display = 'block'
-    usersection.style.display = 'block'
-    let loader = document.getElementsByClassName('loader user-section-loader')
-    if (loader) {
-        mainContainer.removeChild(mainContainer.firstElementChild)
-        mainContainer.removeChild(mainContainer.children[1])
-    }
+// receving message
 
+socket.on('receive', (data) => {
+    const { message, Name } = data;
+    appendMessage(message, Name, 'incoming');
 })
 
 
+// All function code start from here
 
+// function defination for appending new user to the intial DOM
 
+function appendUser(user) {
+    const { username, id } = user;
+    // Dom manupulation
+    $('.loader').remove()
+    $('.user-section').css('display', 'block')
+    $('.userName').html(`<h4>${username}</h4><input hidden id=${id}></input>`)
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Make connection to socketio
-socket.emit('New-user-joined', name, emailaddr);
-socket.on('user-joined', (name,id) => {
-        costume_alert(name,id)
-})
-
-socket.on('receive', data => {
-    // console.log(data)
-    appendMessage(data.message, "Roshan", 'incoming')
-})
-
-
-socket.on('user_list', user => {
-    let arr = user
-    let self={}
+// function defination for appending all user connected in socket to the intial DOM
+function appendUserList(userlist) {
+    const ownId = $('.userName').find('input').attr('id')
+    let arr = userlist
     for (let index = 0; index < arr.length; index++) {
-        const user = arr[index];
-        if (user.username == name) {
-           self=user
+        let user = arr[index];
+        if (user.id == ownId) {
             arr.splice(index, 1)
         }
     }
-    let hyper=`<h4>${self.username}</h4>
-    <input type="text" hidden value=${self.id}/>
-    `
-    userName.innerHTML =hyper
-    user_list.innerHTML = `${arr.map(user => `<div id=${user.id} onclick=handle_join_chat(this.id) class="friends">
-    <img src="../assets/upload.png"/>
-    <h4>${user.username}</h4>
-    </div>`).join('')}`
 
-})
+    $('.userList').html(`${arr.map(user => `<div id=${user.id} class="friends" onclick="handle_joined_chat(this.id)"><img src="../assets/upload.png"/><h4>${user.username}</h4><input hidden id=${user.id}></input></div>`).join('')}`)
+
+}
 
 
-
-
-socket.on('left', username => {
-    append(`${username} left the chat`)
-})
+function handle_user_Connection(Name, Id) {
+    handle_user_state(Name, Id).then((state) => {
+        if (state) {
+            appendChatting(Name, Id, state);
+            const SenderId = $('.userName').find('input').attr('id')
+            socket.emit('request_accepted', SenderName, SenderId, Id);
+        }
+    })
+}
 
 
 
+function appendChatting(Name, Id, state) {
+    $('.message-window').css('display', 'block')
+    $('.Name').html(`<h4>${Name}</h4><input hidden id=${Id} conection=${state} />`)
+}
 
-function handle_join_chat(id) {
-    const div=document.getElementById(id)
-    const Name= div.children[1].innerText
-    appendChatHead(Name,id)
-    const str=userName.children[1].defaultValue
-   $('.chat_container').css('display','block')
-    const ids=str.replace('/','')
-     socket.emit('Joined_Chat',name,ids,id);
-    }
-
-
-function appendChatHead(name,id){
-    const userName=document.querySelector('.Name')
-    if(userName.children[1]){
-        userName.removeChild[1]
-    }
-    // if(!userName.children[1]){
-let hyper=`<h4>${name}</h4>
-<input type="text" hidden value=${id}/>
-`
-userName.innerHTML=hyper
-
+function handle_user_state(Name, Id) {
+    return new Promise((resolve, reject) => {
+        alert(`${Name} wants to chat with you`)
+        if (alert) {
+            resolve(true)
+        } else {
+            reject(false)
+        }
+    })
 }
 
 
 
 
-$('.logout-button img').click(()=>{
-   localStorage.removeItem('user')
-   window.location.href = "../index.html";
+
+//  Code for Messaging Functionality
+
+$('.form_input').on('submit', (e) => {
+    e.preventDefault()
+    const message = $('#Messageinp').val()
+    $('#Messageinp').val('')
+    const receiverId = $('.Name').find('input').attr('id')
+    if (message) {
+        socket.emit('Message', message, receiverId, SenderName);
+        appendMessage(message, 'you', 'outgoing')
+        outgoing.play()
+    }
 })
 
 
-
-
-
-//code for alert box
-$(`.customAlert input[type='button']`).click((e)=>{
-const checked=e.currentTarget.defaultValue
-if(checked=='ok'){
-$('.customAlert').css('display','none')
-append(`Now you can call each other`, name)
-$('.chat_container').css('display','block')
+function appendMessage(message, whom, state) {
+    $('.chats').append(`
+    <div class="message_body">
+<div class="message ${state}">
+    <h5>${whom}</h5>
+    <p>${message}</p>
+</div>
+</div>`)
+if(state=="incoming"){
+    incoming.play()
 }
-})
-
-
-function costume_alert(name,id){
-    appendChatHead(name,id)
-    $('.customAlert p').text(`${name} request you to join the chat`)
-    $('.customAlert').css('display','block')
+var MessageBody=document.querySelector('.chats')
+MessageBody.scrollTop = MessageBody.scrollHeight
 }
