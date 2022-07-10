@@ -165,3 +165,10 @@ if(state=="incoming"){
 var MessageBody=document.querySelector('.chats')
 MessageBody.scrollTop = MessageBody.scrollHeight
 }
+
+
+
+$('.logout-button').on('click',()=>{
+    localStorage.removeItem('user');
+    window.location.href = '../index.html'
+})
